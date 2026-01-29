@@ -1,0 +1,77 @@
+# Use Python 3.9 with CUDA for GPU training if needed
+FROM python:3.9-slim
+
+# For GPU training, use this instead:
+# FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu20.04
+
+# Set working directory
+WORKDIR /app
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    NUM_JOBS=4 \
+    MODEL_SAVE_PATH=/app/models/carbon_footprint_model.pkl \
+    TRAINING_DATA_PATH=/app/data/personal_carbon_footprint_behavior.csv \
+    LOG_LEVEL=INFO
+
+# Install system dependencies for training
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    build-essential \
+    curl \
+    wget \
+    git \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies for training
+COPY requirements-train.txt .
+RUN pip install --upgrade pip && \
+    pip install -r requirements-train.txt
+
+# Copy training scripts
+COPY train_model.py .
+COPY preprocess.py .
+COPY config.py .
+COPY utils.py .
+
+# Create necessary directories
+RUN mkdir -p /app/data \
+    /app/models \
+    /app/logs \
+    /app/experiments \
+    /app/artifacts \
+    /app/notebooks
+
+# Copy dataset
+COPY personal_carbon_footprint_behavior.csv /app/data/
+
+# Install Jupyter for experimentation (optional)
+RUN pip install jupyter jupyterlab notebook
+
+# Install MLflow for experiment tracking (optional)
+RUN pip install mlflow boto3 pymysql
+
+# Install hyperparameter optimization tools
+RUN pip install optuna hyperopt
+
+# Install SHAP for model interpretation
+RUN pip install shap
+
+# Install additional model libraries
+RUN pip install imbalanced-learn
+
+# Create non-root user
+RUN useradd -m -u 1000 trainer && \
+    chown -R trainer:trainer /app
+
+USER trainer
+
+# Create volume mounts for data persistence
+VOLUME ["/app/models", "/app/logs", "/app/experiments", "/app/artifacts"]
+
+# Default command to run training
+CMD ["python", "train_model.py"]

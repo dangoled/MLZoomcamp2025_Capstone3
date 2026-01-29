@@ -1,0 +1,397 @@
+version = 1
+requires-python = ">=3.9"
+
+[[package]]
+name = "carbon-footprint-predictor"
+version = "1.0.0"
+source = { virtual = "." }
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "joblib",
+    "pydantic",
+    "python-dotenv",
+]
+
+# Runtime dependencies
+[[package]]
+name = "fastapi"
+version = "0.104.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "starlette<0.28.0,>=0.27.0",
+    "pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4",
+    "typing-extensions>=4.8.0",
+]
+
+[[package]]
+name = "uvicorn"
+version = "0.24.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "click>=7.0",
+    "h11>=0.8",
+    "python-dotenv>=0.13",
+    "typing-extensions>=4.0",
+    "watchfiles>=0.13",
+]
+
+[[package]]
+name = "uvicorn-standard"
+version = "0.24.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "uvicorn",
+    "websockets>=10.4",
+    "httptools>=0.5.0",
+    "python-dotenv>=0.13",
+    "pyyaml>=5.1",
+]
+
+[[package]]
+name = "starlette"
+version = "0.27.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "anyio>=3.4.0,<5",
+]
+
+[[package]]
+name = "pydantic"
+version = "2.4.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "typing-extensions>=4.6.1",
+    "annotated-types>=0.5.0",
+    "pydantic-core==2.10.1",
+]
+
+[[package]]
+name = "pydantic-core"
+version = "2.10.1"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "annotated-types"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "pandas"
+version = "2.1.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "numpy<2,>=1.23.2",
+    "python-dateutil>=2.8.2",
+    "pytz>=2020.1",
+    "tzdata>=2022.1",
+]
+
+[[package]]
+name = "numpy"
+version = "1.26.2"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "scikit-learn"
+version = "1.3.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "numpy>=1.17.3",
+    "scipy>=1.5.0",
+    "joblib>=1.1.1",
+    "threadpoolctl>=2.0.0",
+]
+
+[[package]]
+name = "scipy"
+version = "1.11.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "numpy<2.0,>=1.22.4",
+]
+
+[[package]]
+name = "joblib"
+version = "1.3.2"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "threadpoolctl"
+version = "3.2.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "python-dotenv"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "click"
+version = "8.1.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "colorama",
+]
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "h11"
+version = "0.14.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "watchfiles"
+version = "0.21.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "anyio>=3.0.0,<5",
+]
+
+[[package]]
+name = "websockets"
+version = "12.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "httptools"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "pyyaml"
+version = "6.0.1"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "anyio"
+version = "3.7.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "idna>=2.8",
+    "sniffio>=1.1",
+    "typing-extensions>=4.1",
+]
+
+[[package]]
+name = "typing-extensions"
+version = "4.8.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "idna"
+version = "3.6"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "sniffio"
+version = "1.3.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "python-dateutil"
+version = "2.8.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "six>=1.5",
+]
+
+[[package]]
+name = "six"
+version = "1.16.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "pytz"
+version = "2023.3.post1"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "tzdata"
+version = "2023.3"
+source = { registry = "https://pypi.org/simple" }
+
+# Development dependencies
+[[package]]
+name = "black"
+version = "23.11.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "click>=8.0.0",
+    "mypy-extensions>=0.4.3",
+    "packaging>=22.0",
+    "pathspec>=0.9.0",
+    "platformdirs>=2",
+    "tomli>=1.1.0",
+]
+
+[[package]]
+name = "flake8"
+version = "6.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "pycodestyle<2.12.0,>=2.11.0",
+    "pyflakes<3.2.0,>=3.1.0",
+    "mccabe<0.8.0,>=0.7.0",
+]
+
+[[package]]
+name = "isort"
+version = "5.12.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "tomli",
+]
+
+[[package]]
+name = "pytest"
+version = "7.4.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "iniconfig",
+    "packaging",
+    "pluggy<2.0,>=0.12",
+]
+
+[[package]]
+name = "pytest-asyncio"
+version = "0.21.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "pytest>=7.0.0",
+]
+
+[[package]]
+name = "httpx"
+version = "0.25.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "certifi",
+    "httpcore==0.18.0",
+    "idna",
+    "sniffio",
+]
+
+# Training dependencies
+[[package]]
+name = "xgboost"
+version = "2.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "numpy",
+    "scipy",
+]
+
+[[package]]
+name = "lightgbm"
+version = "4.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+]
+
+[[package]]
+name = "category-encoders"
+version = "2.6.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "numpy>=1.14.0",
+    "scikit-learn>=0.20.0",
+    "scipy>=1.0.0",
+    "statsmodels>=0.9.0",
+    "pandas>=1.0.5",
+    "patsy>=0.5.1",
+]
+
+# Optional dependencies for extended features
+[[package]]
+name = "python-jose"
+version = "3.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "ecdsa<1.0",
+    "rsa<5",
+    "pyasn1<0.6.0",
+]
+
+[[package]]
+name = "python-multipart"
+version = "0.0.6"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "structlog"
+version = "23.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "typing-extensions>=4.0.0",
+]
+
+[[package]]
+name = "prometheus-client"
+version = "0.19.0"
+source = { registry = "https://pypi.org/simple" }
+
+[[package]]
+name = "sqlalchemy"
+version = "2.0.23"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "typing-extensions>=4.6.0",
+]
+
+[[package]]
+name = "alembic"
+version = "1.12.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    "sqlalchemy>=1.3.18",
+    "mako",
+    "typing-extensions>=4",
+]
+
+# Package groups
+[package-groups]
+main = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "joblib",
+    "pydantic",
+    "python-dotenv",
+]
+
+dev = [
+    "black",
+    "flake8",
+    "isort",
+    "pytest",
+    "pytest-asyncio",
+    "httpx",
+]
+
+train = [
+    "xgboost",
+    "lightgbm",
+    "category-encoders",
+]
+
+optional = [
+    "python-jose",
+    "python-multipart",
+    "structlog",
+    "prometheus-client",
+    "sqlalchemy",
+    "alembic",
+]

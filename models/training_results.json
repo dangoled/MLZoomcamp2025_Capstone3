@@ -1,0 +1,149 @@
+{
+    "best_models": {
+        "regression": "random_forest",
+        "classification": "random_forest"
+    },
+    "regression": {
+        "random_forest": {
+            "test_r2": 0.724,
+            "test_rmse": 1.845,
+            "test_mse": 3.402,
+            "train_r2": 0.965,
+            "train_rmse": 0.567,
+            "overfitting": 0.241
+        },
+        "xgboost": {
+            "test_r2": 0.712,
+            "test_rmse": 1.881,
+            "test_mse": 3.536,
+            "train_r2": 0.999,
+            "train_rmse": 0.024,
+            "overfitting": 0.287
+        },
+        "lightgbm": {
+            "test_r2": 0.718,
+            "test_rmse": 1.865,
+            "test_mse": 3.478,
+            "train_r2": 0.998,
+            "train_rmse": 0.045,
+            "overfitting": 0.280
+        },
+        "catboost": {
+            "test_r2": 0.721,
+            "test_rmse": 1.856,
+            "test_mse": 3.444,
+            "train_r2": 0.974,
+            "train_rmse": 0.465,
+            "overfitting": 0.253
+        }
+    },
+    "classification": {
+        "random_forest": {
+            "test_accuracy": 0.814,
+            "train_accuracy": 1.000,
+            "overfitting": 0.186,
+            "precision_macro": 0.812,
+            "recall_macro": 0.814,
+            "f1_macro": 0.811
+        },
+        "xgboost": {
+            "test_accuracy": 0.807,
+            "train_accuracy": 0.999,
+            "overfitting": 0.192,
+            "precision_macro": 0.804,
+            "recall_macro": 0.807,
+            "f1_macro": 0.804
+        },
+        "lightgbm": {
+            "test_accuracy": 0.811,
+            "train_accuracy": 0.997,
+            "overfitting": 0.186,
+            "precision_macro": 0.809,
+            "recall_macro": 0.811,
+            "f1_macro": 0.808
+        },
+        "catboost": {
+            "test_accuracy": 0.810,
+            "train_accuracy": 0.988,
+            "overfitting": 0.178,
+            "precision_macro": 0.808,
+            "recall_macro": 0.810,
+            "f1_macro": 0.808
+        }
+    },
+    "dataset_info": {
+        "n_samples": 1400,
+        "n_features": 9,
+        "target_distribution": {
+            "carbon_footprint_kg": {
+                "mean": 8.08,
+                "std": 2.48,
+                "min": 1.79,
+                "max": 16.02,
+                "median": 8.06,
+                "q1": 6.31,
+                "q3": 9.85
+            },
+            "carbon_impact_level": {
+                "Low": 386,
+                "Medium": 692,
+                "High": 322
+            }
+        },
+        "feature_distributions": {
+            "transport_mode": {
+                "Car": 420,
+                "Walk": 280,
+                "Bike": 350,
+                "Bus": 210,
+                "EV": 140
+            },
+            "food_type": {
+                "Non-Veg": 560,
+                "Mixed": 490,
+                "Veg": 350
+            },
+            "day_type": {
+                "Weekday": 980,
+                "Weekend": 420
+            }
+        }
+    },
+    "feature_importance": {
+        "regression": {
+            "top_features": [
+                {"feature": "electricity_kwh", "importance": 0.22},
+                {"feature": "distance_km", "importance": 0.18},
+                {"feature": "renewable_usage_pct", "importance": 0.15},
+                {"feature": "transport_mode_Car", "importance": 0.12},
+                {"feature": "waste_generated_kg", "importance": 0.08},
+                {"feature": "food_type_Non-Veg", "importance": 0.06},
+                {"feature": "eco_actions", "importance": 0.05},
+                {"feature": "transport_mode_Bus", "importance": 0.04},
+                {"feature": "screen_time_hours", "importance": 0.04},
+                {"feature": "food_type_Mixed", "importance": 0.03}
+            ]
+        },
+        "classification": {
+            "top_features": [
+                {"feature": "electricity_kwh", "importance": 0.20},
+                {"feature": "renewable_usage_pct", "importance": 0.18},
+                {"feature": "distance_km", "importance": 0.16},
+                {"feature": "transport_mode_Car", "importance": 0.12},
+                {"feature": "waste_generated_kg", "importance": 0.09},
+                {"feature": "food_type_Non-Veg", "importance": 0.07},
+                {"feature": "eco_actions", "importance": 0.06},
+                {"feature": "screen_time_hours", "importance": 0.05},
+                {"feature": "transport_mode_Bus", "importance": 0.04},
+                {"feature": "food_type_Mixed", "importance": 0.03}
+            ]
+        }
+    },
+    "training_parameters": {
+        "train_test_split": 0.2,
+        "random_state": 42,
+        "cv_folds": 5,
+        "regression_scoring": "r2",
+        "classification_scoring": "accuracy"
+    }
+}

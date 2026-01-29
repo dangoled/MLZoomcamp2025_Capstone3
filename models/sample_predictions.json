@@ -1,0 +1,125 @@
+[
+    {
+        "input": {
+            "day_type": "Weekday",
+            "transport_mode": "Car",
+            "distance_km": 20.0,
+            "electricity_kwh": 12.0,
+            "renewable_usage_pct": 10.0,
+            "food_type": "Non-Veg",
+            "screen_time_hours": 8.0,
+            "waste_generated_kg": 1.2,
+            "eco_actions": 0
+        },
+        "output": {
+            "carbon_footprint_kg": 13.75,
+            "carbon_impact_level": "High",
+            "confidence": 0.88,
+            "probabilities": {
+                "Low": 0.05,
+                "Medium": 0.12,
+                "High": 0.83
+            },
+            "suggestions": [
+                {
+                    "category": "Transport",
+                    "action": "Switch to public transport or carpool",
+                    "impact": "High",
+                    "estimated_reduction": "3-5 kg CO₂/day"
+                },
+                {
+                    "category": "Energy",
+                    "action": "Switch to renewable energy provider",
+                    "impact": "Medium",
+                    "estimated_reduction": "1-2 kg CO₂/day"
+                },
+                {
+                    "category": "Food",
+                    "action": "Reduce meat consumption",
+                    "impact": "Medium",
+                    "estimated_reduction": "0.5-1.5 kg CO₂/day"
+                }
+            ]
+        }
+    },
+    {
+        "input": {
+            "day_type": "Weekend",
+            "transport_mode": "Bike",
+            "distance_km": 5.0,
+            "electricity_kwh": 3.5,
+            "renewable_usage_pct": 80.0,
+            "food_type": "Veg",
+            "screen_time_hours": 3.0,
+            "waste_generated_kg": 0.3,
+            "eco_actions": 5
+        },
+        "output": {
+            "carbon_footprint_kg": 4.25,
+            "carbon_impact_level": "Low",
+            "confidence": 0.92,
+            "probabilities": {
+                "Low": 0.85,
+                "Medium": 0.12,
+                "High": 0.03
+            },
+            "suggestions": [
+                {
+                    "category": "Maintenance",
+                    "action": "Continue sustainable practices",
+                    "impact": "N/A",
+                    "estimated_reduction": "Maintain current level"
+                },
+                {
+                    "category": "Energy",
+                    "action": "Achieve 100% renewable energy",
+                    "impact": "Low",
+                    "estimated_reduction": "Additional 0.2 kg CO₂/day"
+                }
+            ]
+        }
+    },
+    {
+        "input": {
+            "day_type": "Weekday",
+            "transport_mode": "Bus",
+            "distance_km": 12.0,
+            "electricity_kwh": 7.0,
+            "renewable_usage_pct": 40.0,
+            "food_type": "Mixed",
+            "screen_time_hours": 5.0,
+            "waste_generated_kg": 0.6,
+            "eco_actions": 2
+        },
+        "output": {
+            "carbon_footprint_kg": 8.15,
+            "carbon_impact_level": "Medium",
+            "confidence": 0.79,
+            "probabilities": {
+                "Low": 0.25,
+                "Medium": 0.65,
+                "High": 0.10
+            },
+            "suggestions": [
+                {
+                    "category": "Energy",
+                    "action": "Reduce electricity consumption",
+                    "impact": "Medium",
+                    "estimated_reduction": "0.5-1 kg CO₂/day"
+                },
+                {
+                    "category": "Waste",
+                    "action": "Improve recycling habits",
+                    "impact": "Low",
+                    "estimated_reduction": "0.2-0.4 kg CO₂/day"
+                },
+                {
+                    "category": "Lifestyle",
+                    "action": "Increase eco-friendly actions",
+                    "impact": "Low",
+                    "estimated_reduction": "0.1-0.3 kg CO₂/day"
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,122 @@
+{
+    "model_configuration": {
+        "regression_model": {
+            "type": "RandomForestRegressor",
+            "hyperparameters": {
+                "n_estimators": 100,
+                "max_depth": 20,
+                "min_samples_split": 5,
+                "random_state": 42
+            },
+            "performance": {
+                "r2_score": 0.75,
+                "rmse": 1.85,
+                "mse": 3.42
+            }
+        },
+        "classification_model": {
+            "type": "RandomForestClassifier",
+            "hyperparameters": {
+                "n_estimators": 100,
+                "max_depth": 20,
+                "min_samples_split": 5,
+                "random_state": 42
+            },
+            "performance": {
+                "accuracy": 0.82,
+                "precision_macro": 0.81,
+                "recall_macro": 0.82,
+                "f1_macro": 0.81
+            }
+        },
+        "preprocessing": {
+            "numeric_features": [
+                "distance_km",
+                "electricity_kwh",
+                "renewable_usage_pct",
+                "screen_time_hours",
+                "waste_generated_kg",
+                "eco_actions"
+            ],
+            "categorical_features": [
+                "day_type",
+                "transport_mode",
+                "food_type"
+            ],
+            "transformations": {
+                "numeric": ["median_imputation", "standard_scaling"],
+                "categorical": ["constant_imputation", "one_hot_encoding"]
+            }
+        },
+        "feature_engineering": {
+            "enabled": true,
+            "features_created": [
+                "transport_impact_score",
+                "energy_efficiency",
+                "waste_per_activity",
+                "sustainability_score",
+                "is_weekend"
+            ]
+        },
+        "thresholds": {
+            "carbon_impact_levels": {
+                "low": 6.5,
+                "medium": 10.5,
+                "high": 10.5
+            }
+        }
+    },
+    "training_info": {
+        "dataset": {
+            "name": "personal_carbon_footprint_behavior.csv",
+            "samples": 1400,
+            "features": 9,
+            "users": 200
+        },
+        "training": {
+            "date": "2024-01-15",
+            "train_test_split": 0.8,
+            "random_state": 42,
+            "cross_validation_folds": 5
+        },
+        "models_tested": {
+            "regression": [
+                "RandomForestRegressor",
+                "XGBRegressor",
+                "LGBMRegressor",
+                "CatBoostRegressor",
+                "LinearRegression",
+                "GradientBoostingRegressor"
+            ],
+            "classification": [
+                "RandomForestClassifier",
+                "XGBClassifier",
+                "LGBMClassifier",
+                "CatBoostClassifier",
+                "LogisticRegression",
+                "GradientBoostingClassifier"
+            ]
+        }
+    },
+    "deployment": {
+        "api_version": "1.0.0",
+        "minimum_memory_mb": 512,
+        "minimum_cpu_cores": 1,
+        "dependencies": [
+            "scikit-learn>=1.3.0",
+            "pandas>=2.0.3",
+            "numpy>=1.24.3"
+        ],
+        "input_schema": {
+            "day_type": ["Weekday", "Weekend"],
+            "transport_mode": ["Walk", "Bike", "Bus", "EV", "Car"],
+            "distance_km": {"min": 0, "max": 100},
+            "electricity_kwh": {"min": 0, "max": 50},
+            "renewable_usage_pct": {"min": 0, "max": 100},
+            "food_type": ["Veg", "Mixed", "Non-Veg"],
+            "screen_time_hours": {"min": 0, "max": 24},
+            "waste_generated_kg": {"min": 0, "max": 10},
+            "eco_actions": {"min": 0, "max": 10}
+        }
+    }
+}
